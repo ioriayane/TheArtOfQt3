@@ -40,11 +40,11 @@ Controller.prototype.StartMenuDirectoryPageCallback = function()
 //開始確認ページが表示されたときのコールバック
 Controller.prototype.ReadyForInstallationPageCallback = function()
 {
-  gui.clickButton(buttons.CommitButton)     //次へボタンを押す    []
+  gui.clickButton(buttons.CommitButton)     //次へボタンを押す    [4]
 }
 
 //完了確認ページが表示されたときのコールバック
 Controller.prototype.FinishedPageCallback = function()
 {
-  gui.clickButton(buttons.FinishButton)     //次へボタンを押す    []
+  gui.clickButton(buttons.FinishButton)     //次へボタンを押す    [5]
 }
