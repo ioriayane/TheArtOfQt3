@@ -28,7 +28,12 @@ Controller.prototype.LicenseAgreementPageCallback = function()
 //コンポーネント選択ページが表示されたときのコールバック
 Controller.prototype.ComponentSelectionPageCallback = function()
 {
-  gui.clickButton(buttons.NextButton)       //次へボタンを押す
+  var widget = gui.currentPageWidget()                //現在のページのオブジェクトを取得
+  if(widget != null){
+    widget.selectAll()                                //すべてのコンポーネントを選択   [4]
+//    widget.selectComponent("com.vendor.product")      //個別で選択
+    gui.clickButton(buttons.NextButton)               //次へボタンを押す
+  }
 }
 
 //スタートメニューディレクトリ選択ページが表示されたときのコールバック
@@ -40,11 +45,11 @@ Controller.prototype.StartMenuDirectoryPageCallback = function()
 //開始確認ページが表示されたときのコールバック
 Controller.prototype.ReadyForInstallationPageCallback = function()
 {
-  gui.clickButton(buttons.CommitButton)     //次へボタンを押す    [4]
+  gui.clickButton(buttons.CommitButton)     //次へボタンを押す    [5]
 }
 
 //完了確認ページが表示されたときのコールバック
 Controller.prototype.FinishedPageCallback = function()
 {
-  gui.clickButton(buttons.FinishButton)     //次へボタンを押す    [5]
+  gui.clickButton(buttons.FinishButton)     //次へボタンを押す    [6]
 }
