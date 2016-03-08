@@ -18,7 +18,7 @@ Controller.prototype.componentAdded = function(component)                 // [2]
 //コンポーネントが読み込まれたときのシグナルハンドラ
 Controller.prototype.ComponentLoaded = function()                         // [5]
 {
-  var page = gui.pageByObjectName("DynamicPage")
+  var page = gui.pageByObjectName("DynamicStandardOrCustom")
   if(page != null){
     //オリジナルページが表示されたときのシグナル（コールバック）
     page.entered.connect(Controller.prototype.dynamicPageCallback)        // [6]
@@ -34,7 +34,11 @@ Controller.prototype.IntroductionPageCallback = function()
 //オリジナルページが表示されたときのコールバック                          // [7]
 Controller.prototype.dynamicPageCallback = function ()
 {
-  gui.clickButton(buttons.NextButton)     //次へボタンを押す
+  var widget = gui.currentPageWidget()                     //現在のページのオブジェクトを取得
+  if(widget != null){
+    widget.findChild("customRadioButton").checked = true   //カスタムを選択    // [8]
+    gui.clickButton(buttons.NextButton)                    //次へボタンを押す
+  }
 }
 
 //フォルダ選択が表示されたときのコールバック
@@ -56,7 +60,11 @@ Controller.prototype.LicenseAgreementPageCallback = function()
 //コンポーネント選択ページが表示されたときのコールバック
 Controller.prototype.ComponentSelectionPageCallback = function()
 {
-  gui.clickButton(buttons.NextButton)       //次へボタンを押す
+  var widget = gui.currentPageWidget()                //現在のページのオブジェクトを取得
+  if(widget != null){
+    widget.selectAll()                                //すべてのコンポーネントを選択
+    gui.clickButton(buttons.NextButton)               //次へボタンを押す
+  }
 }
 
 //スタートメニューディレクトリ選択ページが表示されたときのコールバック
