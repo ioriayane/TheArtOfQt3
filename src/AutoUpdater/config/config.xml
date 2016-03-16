@@ -10,7 +10,7 @@
   <!-- ControlScript>controlscript.qs</ControlScript -->
   <RemoteRepositories>
     <Repository>
-      <Url>file:///D:/iori/Documents/GitHub/TheArtOfQt3/src/AutoUpdater/repository</Url>
+      <Url>file:///C:/TheArtOfQt3/src/AutoUpdater/repository</Url>
       <Enabled>1</Enabled>
       <DisplayName>HelloWorld repository</DisplayName>
     </Repository>
