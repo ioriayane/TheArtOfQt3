@@ -3,13 +3,13 @@
 set APP_PATH="c:\Program Files (x86)\HelloWorld\maintenancetool.exe"
 set SCRIPT_PATH=%~dp0controlscript.qs
 
-REM アップデート確認
+REM 更新確認
 %APP_PATH% --checkupdates
 
 if %errorlevel% == 0 (
-echo アップデートあり
+echo 更新あり
 %APP_PATH% --updater --script %SCRIPT_PATH%
 ) else (
-echo アップデートなし
+echo 更新なし
 )
 

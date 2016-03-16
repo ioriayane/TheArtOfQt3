@@ -3,14 +3,14 @@
 APP_PATH="/opt/HelloWorld/maintenancetool"
 SCRIPT_PATH=$(cd $(dirname $0) && pwd)/controlscript.qs
 
-# アップデート確認
+# 更新確認
 $APP_PATH --checkupdates
 
 if test $? -eq 0
 then
-echo アップデートあり
+echo 更新あり
 $APP_PATH --updater --script $SCRIPT_PATH
 else
-echo アップデートなし
+echo 更新なし
 fi
 
