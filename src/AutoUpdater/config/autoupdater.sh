@@ -1,15 +1,16 @@
-@echo off
+#!/bin/sh
 
-set APP_PATH="c:\Program Files (x86)\HelloWorld\maintenancetool.exe"
-set SCRIPT_PATH=%~dp0controlscript.qs
+APP_PATH="/opt/HelloWorld/maintenancetool"
+SCRIPT_PATH=$(cd $(dirname $0) && pwd)/controlscript.qs
 
-REM アップデート確認
-%APP_PATH% --checkupdates
+# アップデート確認
+$APP_PATH --checkupdates
 
-if %errorlevel% == 0 (
+if test $? -eq 0
+then
 echo アップデートあり
-%APP_PATH% --updater --script %SCRIPT_PATH%
-) else (
+$APP_PATH --updater --script $SCRIPT_PATH
+else
 echo アップデートなし
-)
+fi
 
